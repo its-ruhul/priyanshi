@@ -13,8 +13,8 @@
 
   "nav": {
     "home": "Home",
-    "letter": "Memories",
-    "memories": "Letters"
+    "memories": "Memories",
+    "letter": "Letter"
   },
 
   "intro": {
@@ -38,11 +38,19 @@
     "date": "",
     "greeting": "My dearest {her},",
     "paragraphs": [
-      "I've started this letter more times than I can count, because I wanted to get it right. You deserve more than a quick sorry over text, so here it is, written properly.",
-      "I know I hurt you, and I'm not going to make excuses. You had every right to be upset. I've thought about it a lot, and I understand now how it felt from your side. I'm truly sorry.",
-      "These past few days have felt so quiet. I didn't realise how much of my day is built around you until it wasn't.",
-      "I don't just want to say sorry. I want to do better. I want to listen more, notice the little things, and never make you feel like you're anything less than my favourite person. Because you are.",
-      "So I made you this little corner of the internet. It's not much, but every part of it is for you, and I mean every word."
+      "I've started this letter more times than I can count, because I wanted to get it right. You deserve more than a quick sorry over text, baby, so here it is, written properly.",
+      "I don't know whether this would be enough to win you over again, but I don't wanna lose someone I love so immensely.",
+      "Let's start from the beginning, when I had came to Shillong it was supposed to be just a 2 year posting, and I had made my mind that I won't make any friends here. After my mother's death I was too afraid to get attached to anyone else",
+      "I used to just read, instead of making friends, always soaked in books. But slowley we started talking and god we never stopped talking",
+      "Every new posting came with a set of best friends for me but I never had a best friend like you, you were so different. You were not just the first girl I talked to but the way we both understand each other, nobody ever did.",
+      "We talked so much, bus me chadhne se lekar utarne tak, recess ke time and sometimes we would even try to bunk the class just so that we can get to see each other (although I was pretty bad at it).",
+      "You know I never liked flowers, but the day when you gifted me a flower, I just could never go back. I don't have those flowers now but anytime I see a wild flower, no matter what I am doing, I would just take a break and appreciate it for a while and replay those memories we have weaved over the years",
+      "You made me feel  alive and I hope I made you feel alive too, even if the world had to come to an end tomorrow, I will still be the happiest person in the world if just get to a glimmer of you",
+      "I know things have gotten so bad, but you know what jaan I still have some hope. I really wished that atleast I could have you as friend but I can see this isn't working out. Even my therapist says its hard for lovers to go back to friends when I told her about you",
+      "I know I have made promises that I couldn't keep, but no more, from this day on jaan, I would never make a promise that I cannot keep. I have been too much of an asshole and I want change all of it yaar.",
+      "Babe you know, every single day has been so hard for me and I know its been the same with you. I know we have been suffering so much together, I can't see us like this yaar, I just don't want all those things I have told to just go down in vain",
+      "Sweetheart, I am on my knees as I write this, just give me one last chance. Leave me if I break any more promises or if I act like an asshole",
+      "But don't let our love fade away this easily. Baby just give our love one last chance, I would never ask for anything in my life. I will be the best person that I can possibly be, I will be the man that you deserve."
     ],
     "closing": "Yours, always",
     "signature": "Cute little doggy",
@@ -84,13 +92,13 @@
         "message": "You were born, I wish I were there to welcome you to this world with a warm hug"
       },
       {
-        "photo": "photos/memory-3.jpg",
+        "photo": "photos/memory-3.png",
         "caption": "And our fate started to intertwine",
         "date": "10 June 2020",
         "message": "I just joined APS Shillong but covid kept us locked"
       },
       {
-        "photo": "photos/memory-4.jpg",
+        "photo": "photos/memory-4.png",
         "caption": "We started talking",
         "date": "June 2022",
         "message": "After 10th I started opening up to you and we used to talk all our way to school and back"
@@ -108,13 +116,13 @@
         "message": "After my mom's death, I started searching for true happiness and then after meeting you forgot to search for it, just to realise I was so happy... with you"
       },
       {
-        "photo": "photos/memory-7.jpg",
+        "photo": "photos/memory-7.png",
         "caption": "We used to get flowers for each other",
         "date": "February 2023",
         "message": "That awesome year did came to an end, but not before we would celebrate the spring with plucking flowers for each other."
       },
       {
-        "photo": "photos/memory-8.jpg",
+        "photo": "photos/memory-8.png",
         "caption": "You had to go to Delhi for your operation",
         "date": "April 2023",
         "message": "I never told you how much I have cried for you. That was the last time I ever asked god for anything"
@@ -139,20 +147,26 @@
       },
       {
         "photo": "photos/memory-12.jpg",
-        "caption": "And I started falling in love, and I fell so hard",
+        "caption": "I started falling in love, and I fell so hard",
         "date": "July 2023",
         "message": "The way you had loved me, nobody had ever loved me like that, my every heartbeat started becoming yours"
       },
       {
+        "photo": "photos/memory-t.jpg",
+        "caption": "We became teachers in partner",
+        "date": "July 2023",
+        "message": "I had so many insecurities, couldn't even civil dress but you healed me"
+      },
+      {
         "photo": "photos/memory-13.jpg",
         "caption": "And during Pooja Holidays, we got together",
-        "date": "October 2023",
+        "date": "22 October 2023",
         "message": "All the manifesting came to reality, and we become just for each other officially, I still can't shake that feeling"
       },
       {
         "photo": "photos/memory-14.jpg",
         "caption": "And then we had our first kiss",
-        "date": "November 2023",
+        "date": "06 November 2023",
         "message": "Remember that day, my heart was beating so fast it would have come out, and you fainted too lol 😂"
       },
       {
@@ -162,10 +176,16 @@
         "message": "I almost shat my pants that day lol 😂, but I would never regret it"
       },
       {
-        "photo": "photos/memory-david.jpg",
+        "photo": "photos/memory-david.png",
         "caption": "We would kiss before our pre boards",
         "date": "January 2024",
         "message": "Remember we would just find excuses to kiss behind the pillar of David Hall, gosh I miss those days"
+      },
+      {
+        "photo": "photos/memory-fairwell.jpg",
+        "caption": "You looked so good dancing that day",
+        "date": "February 2024",
+        "message": "Time seemed to have stopped that day when I saw you dance, It was the most beautiful sight in the world"
       },
       {
         "photo": "photos/memory-16.jpg",
@@ -178,12 +198,6 @@
         "caption": "And just like that we were in a LDR",
         "date": "May 2024",
         "message": "I had just a small dumb phone, yet you never complained, we would chat on SMS even though it sucked, but atleast I had you"
-      },
-      {
-        "photo": "photos/memory-17.jpg",
-        "caption": "I would make excuse to get the laptop",
-        "date": "August 2024",
-        "message": "And after so long we could finally see other, I swear I had tears after that 🥹"
       },
       {
         "photo": "photos/memory-18.jpg",
@@ -218,11 +232,11 @@
       {
         "photo": "photos/memory-24.jpg",
         "caption": "I was so depressed in my 2nd Semester",
-        "date": "Marcch 2026",
+        "date": "March 2026",
         "message": "But I had you with me. Thanks for being the only person that understood me."
       },
       {
-        "photo": "photos/memory-25.jpg",
+        "photo": "photos/memory-25.png",
         "caption": "We would choose clothes and pictures for your birthday",
         "date": "12 May 2026",
         "message": "Being with you has always been the best thing of my life."
@@ -232,9 +246,14 @@
         "caption": "And we finally met after more that 2 years",
         "date": "5 June 2026",
         "message": "You came to Shillong and we finally met. We were so happy to finally be together, our love had our first win"
+      },{
+        "photo": "photos/memory-27.jpg",
+        "caption": "I still wanna hold your hand",
+        "date": "5 June 2026",
+        "message": "Holding your hand feels like heaven and will always feel like so."
       },
       {
-        "photo": "photos/memory-27.jpg",
+        "photo": "photos/memory-28.jpeg",
         "caption": "And we met again...",
         "date": "5 October 2026",
         "message": "Its so crazy to meet after just 4 months. Every second I spent with you has been the most precious second of my life"
@@ -247,12 +266,20 @@
     "shuffle": false,
     "tracks": [
       {
+        "title": "Tu thori der aur ther ja",
+        "file": "music/song-0.mp3"
+      },
+      {
         "title": "Tera Rasta me choru na",
         "file": "music/song-1.mp3"
       },
       {
         "title": "Aaj din chadheya",
         "file": "music/song-2.mp3"
+      },
+      {
+        "title": "Majboor",
+        "file": "music/song-3.mp3"
       }
     ]
   }
