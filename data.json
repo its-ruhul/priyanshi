@@ -2,37 +2,37 @@
   "_howToEdit": "Change any text below. Keep the double quotes and commas. {her} and {him} get replaced with the names. Photos go in the photos folder, songs go in the music folder.",
 
   "names": {
-    "her": "My Love",
-    "him": "Abhay"
+    "her": "Priyanshi",
+    "him": "Ruhul"
   },
 
   "site": {
-    "title": "For you, {her}",
-    "togetherSince": ""
+    "title": "For you, Priyanshi",
+    "togetherSince": "June 2022"
   },
 
   "nav": {
     "home": "Home",
-    "letter": "Letter",
-    "memories": "Memories"
+    "letter": "Memories",
+    "memories": "Letters"
   },
 
   "intro": {
-    "line": "Hey {her}, I made you something.",
-    "hint": "Tap the heart to open it"
+    "line": "Hey Priyanshi, I made you something.",
+    "hint": "Tap the heart to open it and use your earphones"
   },
 
   "home": {
-    "greeting": "Hey {her},",
+    "greeting": "Hey Baby,",
     "headline": "I'm sorry. Sit with me for a while?",
     "subtext": "I made you this little place. There's a letter, our memories, and our songs. Take your time.",
     "letterButton": "Read my letter",
     "memoriesButton": "Our memories",
-    "togetherText": "{days} days of us, and counting"
+    "togetherText": " 1629 days of us, and counting"
   },
 
   "letter": {
-    "envelopeLabel": "For {her}",
+    "envelopeLabel": "For Priyanshi",
     "openHint": "Tap the seal to open",
     "skipHint": "Tap the letter to show it all",
     "date": "",
@@ -45,7 +45,7 @@
       "So I made you this little corner of the internet. It's not much, but every part of it is for you, and I mean every word."
     ],
     "closing": "Yours, always",
-    "signature": "{him}",
+    "signature": "Cute little doggy",
     "postscript": "P.S. There's a question for you just below. Answer honestly. (But also, please say yes.)"
   },
 
@@ -73,33 +73,171 @@
     "items": [
       {
         "photo": "photos/memory-1.jpg",
-        "caption": "Where it all started",
-        "date": "",
-        "message": "I still remember how nervous I was this day. Best decision I ever made."
+        "caption": "Meet this Moron",
+        "date": "1 April 2005",
+        "message": "This evil bastard, when he was small but still dumb"
       },
       {
         "photo": "photos/memory-2.jpg",
-        "caption": "That smile",
-        "date": "",
-        "message": "This is the smile I'd do anything to see again. Please let me earn it back."
+        "caption": "And then the earth was blessed",
+        "date": "12 May 2006",
+        "message": "You were born, I wish I were there to welcome you to this world with a warm hug"
       },
       {
         "photo": "photos/memory-3.jpg",
-        "caption": "Our silly day",
-        "date": "",
-        "message": "We laughed so much my stomach hurt. I miss that. I miss us."
+        "caption": "And our fate started to intertwine",
+        "date": "10 June 2020",
+        "message": "I just joined APS Shillong but covid kept us locked"
       },
       {
         "photo": "photos/memory-4.jpg",
-        "caption": "Just us",
-        "date": "",
-        "message": "Nothing special happened this day, and it was still one of my favourites, because you were there."
+        "caption": "We started talking",
+        "date": "June 2022",
+        "message": "After 10th I started opening up to you and we used to talk all our way to school and back"
       },
       {
         "photo": "photos/memory-5.jpg",
-        "caption": "Many more to come",
-        "date": "",
-        "message": "Here's to a hundred more photos like this. I promise."
+        "caption": "You made me fall in love with this world",
+        "date": "August 2022",
+        "message": "After my mom's death, I started my search for true happiness and then after meeting you forgot to search for it, just to realise I was so happy... with you"
+      },
+      {
+        "photo": "photos/memory-6.jpg",
+        "caption": "We went on walk to Malse together",
+        "date": "September 2022",
+        "message": "After my mom's death, I started searching for true happiness and then after meeting you forgot to search for it, just to realise I was so happy... with you"
+      },
+      {
+        "photo": "photos/memory-7.jpg",
+        "caption": "We used to get flowers for each other",
+        "date": "February 2023",
+        "message": "That awesome year did came to an end, but not before we would celebrate the spring with plucking flowers for each other."
+      },
+      {
+        "photo": "photos/memory-8.jpg",
+        "caption": "You had to go to Delhi for your operation",
+        "date": "April 2023",
+        "message": "I never told you how much I have cried for you. That was the last time I ever asked god for anything"
+      },
+      {
+        "photo": "photos/memory-9.jpg",
+        "caption": "We started coming closer and closer...",
+        "date": "May 2023",
+        "message": "We would spend every free second together and obviously people started shipping us, maybe they saw our spark"
+      },
+      {
+        "photo": "photos/memory-10.jpg",
+        "caption": "And I was on Snapchat, only for you, always for you",
+        "date": "July 2023",
+        "message": "We would start sharing our silly pics together, we were so young back then, so full of happiness"
+      },
+      {
+        "photo": "photos/memory-11.jpg",
+        "caption": "I started visiting your house",
+        "date": "August 2023",
+        "message": "My dad doesn't like me going to someone's house but I couldn't care less, I just need excuses to see you"
+      },
+      {
+        "photo": "photos/memory-12.jpg",
+        "caption": "And I started falling in love, and I fell so hard",
+        "date": "July 2023",
+        "message": "The way you had loved me, nobody had ever loved me like that, my every heartbeat started becoming yours"
+      },
+      {
+        "photo": "photos/memory-13.jpg",
+        "caption": "And during Pooja Holidays, we got together",
+        "date": "October 2023",
+        "message": "All the manifesting came to reality, and we become just for each other officially, I still can't shake that feeling"
+      },
+      {
+        "photo": "photos/memory-14.jpg",
+        "caption": "And then we had our first kiss",
+        "date": "November 2023",
+        "message": "Remember that day, my heart was beating so fast it would have come out, and you fainted too lol 😂"
+      },
+      {
+        "photo": "photos/memory-15.jpg",
+        "caption": "We started getting so reckless",
+        "date": "22 December 2023",
+        "message": "I almost shat my pants that day lol 😂, but I would never regret it"
+      },
+      {
+        "photo": "photos/memory-david.jpg",
+        "caption": "We would kiss before our pre boards",
+        "date": "January 2024",
+        "message": "Remember we would just find excuses to kiss behind the pillar of David Hall, gosh I miss those days"
+      },
+      {
+        "photo": "photos/memory-16.jpg",
+        "caption": "The last day of our exam",
+        "date": "2 April 2024",
+        "message": "And that was the last day of our school, I am so glad I got to spend with such a beautiful person and also such a beautiful heart ❤️"
+      },
+      {
+        "photo": "photos/memory-17.jpg",
+        "caption": "And just like that we were in a LDR",
+        "date": "May 2024",
+        "message": "I had just a small dumb phone, yet you never complained, we would chat on SMS even though it sucked, but atleast I had you"
+      },
+      {
+        "photo": "photos/memory-17.jpg",
+        "caption": "I would make excuse to get the laptop",
+        "date": "August 2024",
+        "message": "And after so long we could finally see other, I swear I had tears after that 🥹"
+      },
+      {
+        "photo": "photos/memory-18.jpg",
+        "caption": "I would make excuse get the laptop",
+        "date": "August 2024",
+        "message": "I had just a small dumb phone, yet you never complained, we would chat on SMS even though it sucked, but atleast I had you"
+      },
+      {
+        "photo": "photos/memory-20.jpg",
+        "caption": "Every calf or goat still reminds me of you",
+        "date": "May 2025",
+        "message": "You know every since I came to know you love cows and goats, every time I see one it makes me smile so hard thinking of you"
+      },
+      {
+        "photo": "photos/memory-21.jpg",
+        "caption": "I joined college and video calls became our routine",
+        "date": "August 2025",
+        "message": "I would do so many stupid stuff on video call LOL"
+      },
+      {
+        "photo": "photos/memory-22.jpg",
+        "caption": "We missed each other so much",
+        "date": "October 2025",
+        "message": "I would see couple all around me and every time I see one I would see us in them"
+      },
+      {
+        "photo": "photos/memory-23.jpg",
+        "caption": "You joined college too",
+        "date": "November 2025",
+        "message": "We got into college, despite all the attention we got from others we never leave each other"
+      },
+      {
+        "photo": "photos/memory-24.jpg",
+        "caption": "I was so depressed in my 2nd Semester",
+        "date": "Marcch 2026",
+        "message": "But I had you with me. Thanks for being the only person that understood me."
+      },
+      {
+        "photo": "photos/memory-25.jpg",
+        "caption": "We would choose clothes and pictures for your birthday",
+        "date": "12 May 2026",
+        "message": "Being with you has always been the best thing of my life."
+      },
+      {
+        "photo": "photos/memory-26.jpg",
+        "caption": "And we finally met after more that 2 years",
+        "date": "5 June 2026",
+        "message": "You came to Shillong and we finally met. We were so happy to finally be together, our love had our first win"
+      },
+      {
+        "photo": "photos/memory-27.jpg",
+        "caption": "And we met again...",
+        "date": "5 October 2026",
+        "message": "Its so crazy to meet after just 4 months. Every second I spent with you has been the most precious second of my life"
       }
     ]
   },
@@ -109,8 +247,12 @@
     "shuffle": false,
     "tracks": [
       {
-        "title": "Our song",
+        "title": "Tera Rasta me choru na",
         "file": "music/song-1.mp3"
+      },
+      {
+        "title": "Aaj din chadheya",
+        "file": "music/song-2.mp3"
       }
     ]
   }
