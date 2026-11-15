@@ -1,0 +1,2 @@
+Put your photos in this folder (jpg, png or webp).
+Then list them in data.json under "memories" -> "items", e.g. "photo": "photos/memory-1.jpg"

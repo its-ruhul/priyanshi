@@ -1,0 +1,2 @@
+Put your songs in this folder (mp3 works everywhere).
+Then list them in data.json under "music" -> "tracks", e.g. "file": "music/song-1.mp3"

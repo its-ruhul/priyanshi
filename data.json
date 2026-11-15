@@ -1,0 +1,117 @@
+{
+  "_howToEdit": "Change any text below. Keep the double quotes and commas. {her} and {him} get replaced with the names. Photos go in the photos folder, songs go in the music folder.",
+
+  "names": {
+    "her": "My Love",
+    "him": "Abhay"
+  },
+
+  "site": {
+    "title": "For you, {her}",
+    "togetherSince": ""
+  },
+
+  "nav": {
+    "home": "Home",
+    "letter": "Letter",
+    "memories": "Memories"
+  },
+
+  "intro": {
+    "line": "Hey {her}, I made you something.",
+    "hint": "Tap the heart to open it"
+  },
+
+  "home": {
+    "greeting": "Hey {her},",
+    "headline": "I'm sorry. Sit with me for a while?",
+    "subtext": "I made you this little place. There's a letter, our memories, and our songs. Take your time.",
+    "letterButton": "Read my letter",
+    "memoriesButton": "Our memories",
+    "togetherText": "{days} days of us, and counting"
+  },
+
+  "letter": {
+    "envelopeLabel": "For {her}",
+    "openHint": "Tap the seal to open",
+    "skipHint": "Tap the letter to show it all",
+    "date": "",
+    "greeting": "My dearest {her},",
+    "paragraphs": [
+      "I've started this letter more times than I can count, because I wanted to get it right. You deserve more than a quick sorry over text, so here it is, written properly.",
+      "I know I hurt you, and I'm not going to make excuses. You had every right to be upset. I've thought about it a lot, and I understand now how it felt from your side. I'm truly sorry.",
+      "These past few days have felt so quiet. I didn't realise how much of my day is built around you until it wasn't.",
+      "I don't just want to say sorry. I want to do better. I want to listen more, notice the little things, and never make you feel like you're anything less than my favourite person. Because you are.",
+      "So I made you this little corner of the internet. It's not much, but every part of it is for you, and I mean every word."
+    ],
+    "closing": "Yours, always",
+    "signature": "{him}",
+    "postscript": "P.S. There's a question for you just below. Answer honestly. (But also, please say yes.)"
+  },
+
+  "forgive": {
+    "enabled": true,
+    "question": "So... do you forgive me?",
+    "yes": "Yes",
+    "no": "No",
+    "noReplies": [
+      "Are you sure?",
+      "Think again?",
+      "Pretty please?",
+      "I'll buy you ice cream",
+      "And momos",
+      "You're breaking my heart",
+      "Okay, last chance!"
+    ],
+    "yesTitle": "Yay!",
+    "yesMessage": "Thank you for giving me another chance. I love you, more than I'm good at saying."
+  },
+
+  "memories": {
+    "title": "Little moments with you",
+    "autoplaySeconds": 6,
+    "items": [
+      {
+        "photo": "photos/memory-1.jpg",
+        "caption": "Where it all started",
+        "date": "",
+        "message": "I still remember how nervous I was this day. Best decision I ever made."
+      },
+      {
+        "photo": "photos/memory-2.jpg",
+        "caption": "That smile",
+        "date": "",
+        "message": "This is the smile I'd do anything to see again. Please let me earn it back."
+      },
+      {
+        "photo": "photos/memory-3.jpg",
+        "caption": "Our silly day",
+        "date": "",
+        "message": "We laughed so much my stomach hurt. I miss that. I miss us."
+      },
+      {
+        "photo": "photos/memory-4.jpg",
+        "caption": "Just us",
+        "date": "",
+        "message": "Nothing special happened this day, and it was still one of my favourites, because you were there."
+      },
+      {
+        "photo": "photos/memory-5.jpg",
+        "caption": "Many more to come",
+        "date": "",
+        "message": "Here's to a hundred more photos like this. I promise."
+      }
+    ]
+  },
+
+  "music": {
+    "volume": 0.5,
+    "shuffle": false,
+    "tracks": [
+      {
+        "title": "Our song",
+        "file": "music/song-1.mp3"
+      }
+    ]
+  }
+}

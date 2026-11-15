@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f2e4d6" />
+  <title>For you</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -16 40 38'%3E%3Cpath d='M0 -4 C -4 -12 -16 -10 -16 -1 C -16 7 -6 12 0 18 C 6 12 16 7 16 -1 C 16 -10 4 -12 0 -4 Z' fill='%23b96f6a'/%3E%3C/svg%3E" />
+  <link rel="preload" href="fonts/caveat.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/nunito.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-locked">
+
+  <!-- Paper grain over everything -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Falling petals -->
+  <canvas id="petals" aria-hidden="true"></canvas>
+
+  <!-- Hidden SVG symbols reused around the site -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <path id="heartShape" d="M0 -4 C -4 -12 -16 -10 -16 -1 C -16 7 -6 12 0 18 C 6 12 16 7 16 -1 C 16 -10 4 -12 0 -4 Z" />
+    </defs>
+  </svg>
+
+  <!-- ============ OPENING SCREEN (also unlocks music) ============ -->
+  <div class="gate" id="gate">
+    <div class="gate-inner">
+      <p class="gate-line" data-bind="intro.line"></p>
+      <button class="gate-heart" id="gateHeart" type="button" aria-label="Open">
+        <span class="gate-ring"></span>
+        <span class="gate-ring gate-ring--2"></span>
+        <svg viewBox="-20 -16 40 38" aria-hidden="true"><use href="#heartShape" /></svg>
+      </button>
+      <p class="gate-hint" data-bind="intro.hint"></p>
+      <div class="gate-error" id="gateError" hidden></div>
+    </div>
+  </div>
+
+  <!-- ============ MUSIC PLAYER ============ -->
+  <div class="music" id="music" hidden>
+    <button class="music-btn" id="musicBtn" type="button" aria-label="Play music" aria-pressed="false">
+      <span class="vinyl" aria-hidden="true"></span>
+      <span class="music-badge" aria-hidden="true">
+        <svg class="i-play" viewBox="0 0 10 10"><path d="M3 2 L8 5 L3 8 Z" /></svg>
+        <span class="i-eq"><i></i><i></i><i></i></span>
+      </span>
+    </button>
+    <button class="music-next" id="musicNext" type="button" aria-label="Next song" hidden>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3 L10 8 L4 13 Z" /><rect x="11" y="3" width="2" height="10" rx="1" /></svg>
+    </button>
+  </div>
+
+  <main id="app">
+
+    <!-- ============ HOME ============ -->
+    <section class="page page-home" data-page="home" aria-label="Home">
+      <div class="sky" aria-hidden="true">
+        <svg class="cloud cloud--1" viewBox="0 0 200 70"><path d="M20 60 C 0 60 0 34 22 34 C 24 14 54 8 66 26 C 76 4 116 4 124 28 C 140 16 170 22 168 42 C 192 40 196 60 176 60 Z" /></svg>
+        <svg class="cloud cloud--2" viewBox="0 0 200 70"><path d="M20 60 C 0 60 0 34 22 34 C 24 14 54 8 66 26 C 76 4 116 4 124 28 C 140 16 170 22 168 42 C 192 40 196 60 176 60 Z" /></svg>
+        <svg class="cloud cloud--3" viewBox="0 0 200 70"><path d="M20 60 C 0 60 0 34 22 34 C 24 14 54 8 66 26 C 76 4 116 4 124 28 C 140 16 170 22 168 42 C 192 40 196 60 176 60 Z" /></svg>
+        <div class="bird bird--1"><svg viewBox="0 0 26 10"><path d="M1 8 Q 7 1 13 7 Q 19 1 25 8" /></svg></div>
+        <div class="bird bird--2"><svg viewBox="0 0 26 10"><path d="M1 8 Q 7 1 13 7 Q 19 1 25 8" /></svg></div>
+      </div>
+
+      <svg class="scene" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice" id="scene" aria-hidden="true">
+        <defs>
+          <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#fff4e4" stop-opacity=".95" />
+            <stop offset=".35" stop-color="#fbe3cf" stop-opacity=".65" />
+            <stop offset="1" stop-color="#f3cdbd" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#c3c29c" />
+            <stop offset=".45" stop-color="#b0b28b" />
+            <stop offset="1" stop-color="#959b76" />
+          </linearGradient>
+          <linearGradient id="jacket" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#7a5b48" />
+            <stop offset=".45" stop-color="#957663" />
+            <stop offset="1" stop-color="#78594a" />
+          </linearGradient>
+          <linearGradient id="sweater" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#e6d8c8" />
+            <stop offset=".5" stop-color="#f6eee3" />
+            <stop offset="1" stop-color="#e2d3c2" />
+          </linearGradient>
+          <linearGradient id="hairG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4b3429" />
+            <stop offset="1" stop-color="#3a271f" />
+          </linearGradient>
+          <pattern id="gingham" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="skewX(-14)">
+            <rect width="28" height="28" fill="#f8eee5" />
+            <rect width="14" height="28" fill="#e7b3a5" opacity=".5" />
+            <rect width="28" height="14" fill="#e7b3a5" opacity=".5" />
+          </pattern>
+          <g id="flower">
+            <circle cx="0" cy="-4" r="3.2" /><circle cx="3.8" cy="-1.2" r="3.2" /><circle cx="2.4" cy="3.3" r="3.2" />
+            <circle cx="-2.4" cy="3.3" r="3.2" /><circle cx="-3.8" cy="-1.2" r="3.2" />
+            <circle cx="0" cy="0" r="2" fill="#f3d27e" />
+          </g>
+        </defs>
+
+        <!-- sun + distance -->
+        <circle class="sun-glow" cx="1040" cy="625" r="250" fill="url(#sunGlow)" />
+        <circle cx="1040" cy="625" r="58" fill="#fbead8" />
+        <path d="M-1000 640 C -640 600 -300 660 0 655 C 200 590 380 625 560 630 C 760 636 900 585 1100 600 C 1300 615 1450 580 1600 605 C 1900 630 2300 585 2800 620 L2800 740 L-1000 740 Z" fill="#ebd3c6" />
+        <path d="M-1000 680 C -700 650 -300 700 0 690 C 220 645 420 680 640 672 C 860 664 1000 640 1220 662 C 1400 680 1500 655 1600 668 C 1900 690 2300 650 2800 675 L2800 760 L-1000 760 Z" fill="#dfc3b3" />
+        <g fill="#d5b6a4">
+          <ellipse cx="610" cy="664" rx="22" ry="27" /><rect x="608" y="680" width="4" height="12" />
+          <ellipse cx="646" cy="670" rx="16" ry="20" /><rect x="644" y="684" width="3" height="10" />
+          <ellipse cx="1470" cy="652" rx="26" ry="31" /><rect x="1468" y="672" width="4" height="12" />
+          <ellipse cx="1510" cy="662" rx="18" ry="22" />
+        </g>
+
+        <!-- lake -->
+        <path d="M-1000 712 L0 708 C 300 696 700 692 1000 698 C 1250 702 1450 708 1600 714 L2800 720 L2800 770 L-1000 770 Z" fill="#efe4dc" />
+        <g class="shimmer" stroke="#fffaf3" stroke-width="3" stroke-linecap="round">
+          <line x1="1010" y1="712" x2="1070" y2="712" />
+          <line x1="1022" y1="722" x2="1060" y2="722" />
+          <line x1="1032" y1="732" x2="1050" y2="732" />
+          <line x1="880" y1="716" x2="920" y2="716" />
+          <line x1="1320" y1="726" x2="1350" y2="726" />
+          <line x1="420" y1="722" x2="450" y2="722" />
+        </g>
+
+        <!-- main hill -->
+        <path d="M-1000 772 C -600 758 -300 778 0 768 C 260 736 560 750 820 744 C 1080 738 1340 730 1600 756 C 2000 772 2400 750 2800 762 L2800 1320 L-1000 1320 Z" fill="url(#grass)" />
+        <path d="M-1000 930 C -500 915 0 925 360 905 C 700 895 1200 905 1600 925 C 2000 935 2400 920 2800 930 L2800 1320 L-1000 1320 Z" fill="#8f9772" opacity=".5" />
+
+        <!-- blossom tree -->
+        <g class="tree">
+          <ellipse cx="345" cy="818" rx="150" ry="14" fill="#8a926d" opacity=".45" />
+          <path d="M300 822 C 318 742 322 662 314 592 C 308 542 318 502 336 462 L 352 468 C 340 512 336 552 342 602 C 350 682 356 752 374 822 C 350 828 324 828 300 822 Z" fill="#7b5b4a" />
+          <path d="M296 822 C 284 826 276 830 270 830 M374 822 C 386 826 396 830 404 830" stroke="#7b5b4a" stroke-width="8" stroke-linecap="round" fill="none" />
+          <g class="canopy">
+            <g fill="#e2a99c">
+              <circle cx="170" cy="360" r="95" /><circle cx="300" cy="260" r="120" /><circle cx="450" cy="270" r="105" />
+              <circle cx="560" cy="370" r="80" /><circle cx="120" cy="450" r="70" /><circle cx="420" cy="400" r="95" />
+              <circle cx="250" cy="420" r="90" />
+            </g>
+            <g stroke="#7b5b4a" stroke-linecap="round" fill="none">
+              <path d="M330 520 C 300 470 260 444 214 426" stroke-width="13" />
+              <path d="M340 486 C 380 436 430 404 486 388" stroke-width="12" />
+              <path d="M336 476 C 330 426 320 386 300 346" stroke-width="10" />
+            </g>
+            <g fill="#ecbcb0">
+              <circle cx="210" cy="320" r="85" /><circle cx="340" cy="296" r="100" /><circle cx="482" cy="326" r="84" />
+              <circle cx="176" cy="430" r="58" /><circle cx="334" cy="404" r="80" /><circle cx="526" cy="420" r="52" />
+            </g>
+            <g fill="#f4d3c9">
+              <circle cx="262" cy="278" r="58" /><circle cx="392" cy="246" r="52" /><circle cx="300" cy="366" r="52" />
+              <circle cx="452" cy="358" r="42" /><circle cx="190" cy="378" r="38" />
+            </g>
+            <g id="blossoms"></g>
+          </g>
+        </g>
+
+        <!-- park lamp -->
+        <g class="lamp">
+          <circle class="lamp-glow" cx="560" cy="620" r="70" fill="url(#sunGlow)" />
+          <ellipse cx="560" cy="814" rx="30" ry="6" fill="#868e6a" opacity=".55" />
+          <rect x="555.5" y="640" width="9" height="172" rx="3" fill="#5b4136" />
+          <rect x="547" y="800" width="26" height="13" rx="4" fill="#5b4136" />
+          <path d="M544 640 L576 640 L572 606 L548 606 Z" fill="#fbe8c8" stroke="#5b4136" stroke-width="5" stroke-linejoin="round" />
+          <path d="M540 608 L580 608 L560 588 Z" fill="#5b4136" stroke="#5b4136" stroke-width="4" stroke-linejoin="round" />
+        </g>
+
+        <!-- bush on the right -->
+        <g class="bush">
+          <circle cx="1450" cy="806" r="46" fill="#a3a881" />
+          <circle cx="1520" cy="772" r="64" fill="#a9ad86" />
+          <circle cx="1596" cy="760" r="74" fill="#a3a881" />
+          <circle cx="1500" cy="760" r="34" fill="#bcc09b" />
+          <circle cx="1580" cy="736" r="36" fill="#bcc09b" />
+          <g id="bushFlowers"></g>
+        </g>
+
+        <!-- ground flowers (filled by script) -->
+        <g id="flowers"></g>
+
+        <g id="grassBack"></g>
+
+        <!-- ===== the two of us ===== -->
+        <g class="couple" transform="translate(815 960) scale(.85) translate(-815 -960)">
+          <path d="M548 876 L1052 876 L1112 966 L488 966 Z" fill="#7f8762" opacity=".35" />
+          <path d="M548 868 L1052 868 L1112 958 L488 958 Z" fill="url(#gingham)" stroke="#d9a395" stroke-width="3" stroke-linejoin="round" />
+
+          <!-- him -->
+          <g class="boy">
+            <path d="M726 590 L764 590 L768 620 L722 620 Z" fill="#e2b89c" />
+            <path d="M664 648 C 664 624 688 610 716 606 L 774 606 C 804 610 834 622 840 646 C 848 710 856 800 864 900 C 864 908 858 912 850 912 L 664 912 C 656 912 650 908 650 900 C 654 800 658 710 664 648 Z" fill="url(#jacket)" />
+            <g stroke="#6a4e3d" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5">
+              <path d="M690 662 C 686 722 684 802 684 882" />
+              <path d="M816 662 C 822 722 828 802 832 882" />
+            </g>
+            <path d="M745 640 L748 900" stroke="#6a4e3d" stroke-width="2" opacity=".18" />
+            <path d="M652 884 L862 884 L864 900 C 864 908 858 912 850 912 L 664 912 C 656 912 650 908 650 900 Z" fill="#6a4e3d" opacity=".35" />
+            <path d="M708 614 C 728 630 762 630 782 614 L 786 626 C 764 646 726 646 704 626 Z" fill="#a8887180" />
+            <ellipse cx="695" cy="552" rx="9" ry="14" fill="#e2b89c" />
+            <ellipse cx="795" cy="552" rx="9" ry="14" fill="#e2b89c" />
+            <g class="boy-head">
+              <ellipse cx="745" cy="546" rx="52" ry="58" fill="url(#hairG)" />
+              <path d="M703 506 Q 710 476 732 488 Q 744 464 762 484 Q 784 470 790 502 Z" fill="#4b3429" />
+              <path d="M712 586 L 718 602 L 726 592 L 734 606 L 744 594 L 752 606 L 760 592 L 770 602 L 778 586 Z" fill="#3a271f" />
+              <path d="M716 520 C 726 500 750 494 772 504" stroke="#614739" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7" />
+            </g>
+          </g>
+
+          <!-- her -->
+          <g class="girl">
+            <path d="M838 694 C 842 672 866 660 890 658 L 930 658 C 958 660 980 672 986 696 C 992 760 998 840 1004 900 C 1004 908 998 912 990 912 L 834 912 C 826 912 820 908 822 900 C 828 840 832 760 838 694 Z" fill="url(#sweater)" />
+            <g stroke="#d3c1ae" stroke-width="3" fill="none" stroke-linecap="round">
+              <path d="M856 704 C 852 764 850 824 848 884" />
+              <path d="M968 704 C 974 764 980 824 984 884" />
+            </g>
+            <path d="M822 886 L1002 886 L1004 900 C 1004 908 998 912 990 912 L 834 912 C 826 912 820 908 822 900 Z" fill="#e0d0be" />
+            <g class="girl-head">
+              <path class="hair" d="M832 596 C 830 560 856 538 884 544 C 912 550 926 576 922 606 C 940 640 956 680 960 730 C 964 770 972 800 962 828 C 954 846 940 838 932 846 C 922 858 908 844 898 852 C 886 860 872 846 866 836 C 856 822 862 800 858 778 C 852 740 846 700 840 664 C 836 644 832 620 832 596 Z" fill="url(#hairG)" />
+              <g class="strands" stroke="#2f1f19" stroke-width="3" fill="none" stroke-linecap="round" opacity=".4">
+                <path d="M880 566 C 900 614 920 684 930 762 C 934 792 930 814 920 832" />
+                <path d="M862 584 C 872 644 884 724 888 802 C 890 822 884 836 878 842" />
+                <path d="M902 556 C 922 604 944 684 950 764" />
+              </g>
+              <g class="bow" transform="rotate(-20 882 594)">
+                <path d="M 882 594 C 854 566 838 610 880 602 Z" fill="#f2c7bc" stroke="#c98e84" stroke-width="2.5" stroke-linejoin="round" />
+                <path d="M 882 594 C 910 566 926 610 884 602 Z" fill="#f2c7bc" stroke="#c98e84" stroke-width="2.5" stroke-linejoin="round" />
+                <path d="M878 600 L 868 640 L 876 636 L 882 644 L 884 602 Z" fill="#eebbb0" stroke="#c98e84" stroke-width="2" stroke-linejoin="round" />
+                <path d="M886 600 L 896 638 L 888 636 L 884 644 Z" fill="#eebbb0" stroke="#c98e84" stroke-width="2" stroke-linejoin="round" />
+                <circle cx="882" cy="598" r="6.5" fill="#e3a99c" stroke="#c98e84" stroke-width="2" />
+              </g>
+            </g>
+          </g>
+
+          <!-- his arm around her -->
+          <g class="arm">
+            <path d="M842 752 C 852 806 868 850 902 866 C 934 880 968 874 990 862 L 996 886 C 966 898 922 900 888 888 C 852 874 834 826 830 778 Z" fill="url(#jacket)" />
+            <path d="M976 866 L 982 890" stroke="#6a4e3d" stroke-width="5" stroke-linecap="round" opacity=".5" />
+            <ellipse cx="1000" cy="874" rx="13" ry="11" fill="#e2b89c" transform="rotate(-20 1000 874)" />
+          </g>
+
+          <!-- picnic basket -->
+          <g class="basket">
+            <path d="M1036 896 C 1038 840 1116 840 1118 896" fill="none" stroke="#8f6a4c" stroke-width="7" stroke-linecap="round" />
+            <path d="M1060 892 L 1050 852 M1072 892 L 1076 846 M1086 892 L 1098 856" stroke="#8a9a6c" stroke-width="3" stroke-linecap="round" />
+            <circle cx="1050" cy="850" r="8" fill="#e9a99d" /><circle cx="1076" cy="843" r="9" fill="#f6d8cf" /><circle cx="1098" cy="854" r="7.5" fill="#d98c82" />
+            <path d="M1026 892 L1126 892 L1114 950 L1038 950 Z" fill="#c09670" />
+            <g stroke="#a47c5a" stroke-width="3" stroke-linecap="round">
+              <path d="M1030 908 L1122 908 M1033 922 L1119 922 M1036 936 L1116 936" />
+            </g>
+            <rect x="1022" y="886" width="108" height="12" rx="6" fill="#a77f5e" />
+            <path d="M1032 888 C 1050 874 1080 882 1100 874 C 1110 880 1118 882 1122 888 Z" fill="url(#gingham)" />
+          </g>
+
+          <!-- little hearts floating up -->
+          <g transform="translate(822 500)">
+            <g class="lh lh1"><use href="#heartShape" fill="#d98a82" transform="scale(.7)" /></g>
+            <g class="lh lh2"><use href="#heartShape" fill="#e9a99d" transform="scale(.5)" /></g>
+            <g class="lh lh3"><use href="#heartShape" fill="#c97b74" transform="scale(.6)" /></g>
+          </g>
+        </g>
+
+        <!-- fireflies -->
+        <g class="fireflies" fill="#fff4dc">
+          <circle cx="520" cy="780" r="3" /><circle cx="640" cy="720" r="2.5" /><circle cx="1180" cy="790" r="3" />
+          <circle cx="1270" cy="740" r="2.5" /><circle cx="960" cy="700" r="2.2" /><circle cx="420" cy="860" r="2.8" />
+          <circle cx="1420" cy="880" r="3" /><circle cx="760" cy="760" r="2.2" />
+        </g>
+
+        <!-- foreground grass (filled by script) -->
+        <g id="grassFront"></g>
+      </svg>
+
+      <div class="home-copy">
+        <p class="home-greeting" data-bind="home.greeting"></p>
+        <h1 class="home-headline" data-bind="home.headline" data-split></h1>
+        <p class="home-sub" data-bind="home.subtext"></p>
+        <div class="home-actions">
+          <a class="btn btn-primary" href="#/letter" data-bind="home.letterButton"></a>
+          <a class="btn btn-ghost" href="#/memories" data-bind="home.memoriesButton"></a>
+        </div>
+        <p class="together" id="together" hidden></p>
+      </div>
+    </section>
+
+    <!-- ============ LETTER ============ -->
+    <section class="page page-letter" data-page="letter" aria-label="Letter">
+      <div class="envelope-stage" id="envelopeStage">
+        <button class="envelope" id="envelope" type="button" aria-label="Open the letter">
+          <span class="env-back"></span>
+          <span class="env-paper"><i></i><i></i><i></i><i></i></span>
+          <span class="env-front">
+            <span class="env-label" data-bind="letter.envelopeLabel"></span>
+            <span class="env-stamp"><svg viewBox="-20 -16 40 38"><use href="#heartShape" /></svg></span>
+            <span class="env-postmark"></span>
+          </span>
+          <span class="env-flap"></span>
+          <span class="env-seal"><svg viewBox="-20 -16 40 38"><use href="#heartShape" /></svg></span>
+        </button>
+        <p class="env-hint" data-bind="letter.openHint"></p>
+      </div>
+
+      <div class="letter-wrap" id="letterWrap" hidden>
+        <p class="skip-hint" id="skipHint" data-bind="letter.skipHint"></p>
+        <div class="paper-shell">
+          <span class="tape tape--l" aria-hidden="true"></span>
+          <span class="tape tape--r" aria-hidden="true"></span>
+          <article class="paper" id="paper">
+            <p class="l-date block" id="lDate"></p>
+            <p class="l-greeting block" id="lGreeting"></p>
+            <div id="lBody"></div>
+            <p class="l-closing block" id="lClosing"></p>
+            <p class="l-signature block" id="lSignature"></p>
+            <svg class="l-squiggle" viewBox="0 0 220 30" aria-hidden="true"><path d="M4 18 C 30 4 46 28 72 16 C 98 4 112 26 138 15 C 160 6 176 22 198 12 L 214 8" /></svg>
+            <p class="l-ps block" id="lPs"></p>
+            <svg class="pressed-flower" viewBox="0 0 120 160" aria-hidden="true">
+              <path d="M60 158 C 62 120 58 90 64 60" stroke="#8d9a72" stroke-width="3" fill="none" stroke-linecap="round" />
+              <path d="M62 120 C 40 112 30 96 34 86 C 50 90 60 104 62 120 Z" fill="#a3ad86" />
+              <path d="M61 100 C 82 94 92 80 88 70 C 72 74 63 86 61 100 Z" fill="#98a37b" />
+              <g transform="translate(64 50)" fill="#d99a90" stroke="#b97c72" stroke-width="1.5">
+                <ellipse rx="11" ry="20" transform="rotate(0) translate(0 -16)" />
+                <ellipse rx="11" ry="20" transform="rotate(72) translate(0 -16)" />
+                <ellipse rx="11" ry="20" transform="rotate(144) translate(0 -16)" />
+                <ellipse rx="11" ry="20" transform="rotate(216) translate(0 -16)" />
+                <ellipse rx="11" ry="20" transform="rotate(288) translate(0 -16)" />
+                <circle r="7" fill="#e9c27a" stroke="#c9a05a" />
+              </g>
+            </svg>
+          </article>
+        </div>
+
+        <div class="forgive" id="forgive" hidden>
+          <div class="forgive-ask" id="forgiveAsk">
+            <p class="forgive-q" data-bind="forgive.question"></p>
+            <div class="forgive-btns" id="forgiveBtns">
+              <button class="btn btn-primary f-yes" id="fYes" type="button" data-bind="forgive.yes"></button>
+              <button class="btn btn-ghost f-no" id="fNo" type="button" data-bind="forgive.no"></button>
+            </div>
+          </div>
+          <div class="forgive-done" id="forgiveDone" hidden>
+            <svg class="big-heart" viewBox="-20 -16 40 38" aria-hidden="true"><use href="#heartShape" /></svg>
+            <p class="forgive-title" data-bind="forgive.yesTitle"></p>
+            <p class="forgive-msg" data-bind="forgive.yesMessage"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MEMORIES ============ -->
+    <section class="page page-memories" data-page="memories" aria-label="Memories">
+      <div class="mem-wrap">
+        <h2 class="mem-title" data-bind="memories.title"></h2>
+        <div class="mem-grid">
+          <div class="stack" id="stack" aria-roledescription="carousel"></div>
+          <div class="mem-side">
+            <div class="chat" aria-live="polite">
+              <div class="chat-head">
+                <span class="chat-avatar" id="chatAvatar"></span>
+                <span class="chat-name" id="chatName"></span>
+              </div>
+              <div class="chat-body">
+                <div class="bubble bubble--typing" id="typing"><i></i><i></i><i></i></div>
+                <div class="bubble bubble--msg" id="bubble"></div>
+              </div>
+              <p class="chat-date" id="chatDate"></p>
+            </div>
+            <div class="mem-controls" id="memControls">
+              <button class="round-btn" id="memPrev" type="button" aria-label="Previous photo">
+                <svg viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19" /></svg>
+              </button>
+              <div class="dots" id="dots"></div>
+              <button class="round-btn" id="memNext" type="button" aria-label="Next photo">
+                <svg viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" /></svg>
+              </button>
+            </div>
+            <div class="progress" id="progress"><span id="progressBar"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" id="nav" aria-label="Pages">
+    <span class="nav-blob" id="navBlob" aria-hidden="true"></span>
+    <a href="#/" data-route="home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 L12 4 L20 11 M6 9.5 V19 H18 V9.5" /><path d="M12 17.2 C 10.6 16 9.6 15.2 9.6 14.1 C 9.6 13.2 10.9 12.7 12 13.8 C 13.1 12.7 14.4 13.2 14.4 14.1 C 14.4 15.2 13.4 16 12 17.2 Z" /></svg>
+      <span data-bind="nav.home"></span>
+    </a>
+    <a href="#/letter" data-route="letter">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="2" /><path d="M4 7 L12 13 L20 7" /></svg>
+      <span data-bind="nav.letter"></span>
+    </a>
+    <a href="#/memories" data-route="memories">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="1.5" /><rect x="7.5" y="6" width="9" height="9" rx="1" /></svg>
+      <span data-bind="nav.memories"></span>
+    </a>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="tap-layer" id="tapLayer" aria-hidden="true"></div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
